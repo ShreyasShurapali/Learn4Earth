@@ -64,78 +64,36 @@ public class StudentController {
 	CourseEnrolled result;
 	
 	@RequestMapping("/")
-	 String studentIndex(Model model) {
-		
-List<Course> list = courseRepo.findByStatus("Published");
-		
-		model.addAttribute("allCoursesListHomepage",list);
-		
-		if(list.get(0)!=null && list.get(1)!=null && list.get(2)!=null) {
-			model.addAttribute("course1",list.get(0));
-			model.addAttribute("course2",list.get(1));
-			model.addAttribute("course3",list.get(2));
+	String studentIndex(Model model) {
+		List<Course> list = courseRepo.findByStatus("Published");
+		model.addAttribute("allCoursesListHomepage", list);
+	
+		if (list.size() >= 3) {
+			model.addAttribute("course1", list.get(0));
+			model.addAttribute("course2", list.get(1));
+			model.addAttribute("course3", list.get(2));
+		} else {
+			model.addAttribute("course1", null);
+			model.addAttribute("course2", null);
+			model.addAttribute("course3", null);
 		}
-		else {
-			model.addAttribute("course1",null);
-			model.addAttribute("course2",null);
-			model.addAttribute("course3",null);
-		}
-		
-		List<Course> allCourses = courseRepo.findAll();
-		int allCoursesCount = allCourses.size();
-		model.addAttribute("allCoursesCount",allCoursesCount);
-		
-		List<CourseTopic> allTopic = topicRepo.findAll();
-		int allTopicCount = allTopic.size();
-		model.addAttribute("allTopicCount",allTopicCount);
-		
-		List<Student> allStudent = studRepo.findAll();
-		int allStudentCount = allStudent.size();
-		model.addAttribute("allStudentCount",allStudentCount);
-		
+	
 		List<Teacher> allTeachers = teacherRepo.findAll();
-		int allTeachersCount = allTeachers.size();
-		model.addAttribute("allTeachersCount",allTeachersCount);
-		
-		if(allTeachers.get(0)!=null && allTeachers.get(1)!=null && allTeachers.get(2)!=null && allTeachers.get(3)!=null) {
-			model.addAttribute("teacher1",allTeachers.get(0));
-			model.addAttribute("teacher2",allTeachers.get(1));
-			model.addAttribute("teacher3",allTeachers.get(2));
-			model.addAttribute("teacher4",allTeachers.get(3));
+		model.addAttribute("allTeachersCount", allTeachers.size());
+	
+		if (allTeachers.size() >= 4) {
+			model.addAttribute("teacher1", allTeachers.get(0));
+			model.addAttribute("teacher2", allTeachers.get(1));
+			model.addAttribute("teacher3", allTeachers.get(2));
+			model.addAttribute("teacher4", allTeachers.get(3));
+		} else {
+			model.addAttribute("teacher1", null);
+			model.addAttribute("teacher2", null);
+			model.addAttribute("teacher3", null);
+			model.addAttribute("teacher4", null);
 		}
-		else {
-			model.addAttribute("teacher1",null);
-			model.addAttribute("teacher2",null);
-			model.addAttribute("teacher3",null);
-			model.addAttribute("teacher4",null);
-		}
+	
 		return "index";
-	}
-	
-	@RequestMapping("/contact")
-	 String indexPageContact() {
-		return "/contact.html";
-	}
-	
-	
-	
-	@RequestMapping("/redirecturl")
-	public RedirectView redirecttourl() {
-		RedirectView redirectView = new RedirectView();
-		redirectView.setUrl("/allCoursesHomepage");
-		return redirectView;
-	}
-	
-	
-	/*** Open Student Registration Page ***/
-	@RequestMapping("/studentReg")
-	String studentRegistrationPage(Model model) {
-		
-		Student student =new Student();
-		model.addAttribute("student",student);
-		
-		return "studentRegistration";
-		
 	}
 	
 	/*** Add Student Data ***/

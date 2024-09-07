@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> StudyStream | Template </title>
+    <title> Learn4Earth </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -55,7 +55,7 @@
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left">
                                     <ul>     
-                                        <li>needhelp@gmail.com</li>
+                                        <li>Learnfourearth@gmail.com</li>
                                         <li>666 7475 25252</li>
                                     </ul>
                                 </div>
@@ -71,9 +71,9 @@
                 </div>
                 <div class="header-bottom header-sticky">
                     <!-- Logo -->
-                    <div class="logo d-none d-lg-block">
+                    <!-- <div class="logo d-none d-lg-block">
                         <a  th:href="@{/}"><img src="assets/img/logo/logo.png" alt=""></a>
-                    </div>
+                    </div> -->
                     <div class="container">
                         <div class="menu-wrapper">
                             <!-- Logo -->
@@ -414,13 +414,10 @@
                 </div>
                 <div class="row">
                 
-                    <div class="col-lg-3 col-md-6 col-sm-6" th:object="${teacher1}">
+                    <div th:if="${teacher1 != null}" class="col-lg-3 col-md-6 col-sm-6" th:object="${teacher1}">
                         <div class="single-team mb-30">
                             <div class="team-img">
-                                <img th:src="'/teacherImg//' + ${teacher1.teacherImg}"
-								onerror="this.onerror=null;this.src='teacherImg/default.jpg';"
-                                alt="">
-                                <!-- Blog Social -->
+                                <img th:src="'/teacherImg//' + ${teacher1.teacherImg}" onerror="this.onerror=null;this.src='teacherImg/default.jpg';" alt="">
                                 <ul class="team-social">
                                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -428,69 +425,67 @@
                                 </ul>
                             </div>
                             <div class="team-caption">
-                                <h3><a href="instructor.html" th:text=${teacher1.name}>Alexa Janathon</a></h3>
+                                <h3><a href="instructor.html" th:text="${teacher1.name}">Alexa Janathon</a></h3>
                                 <p>Faculty</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6" th:object="${teacher2}">
+                    
+
+                   <!-- For teacher2 -->
+                        <div th:if="${teacher2 != null}" class="col-lg-3 col-md-6 col-sm-6" th:object="${teacher2}">
                         <div class="single-team mb-30">
-                            <div class="team-img">
-                                <img th:src="'/teacherImg//' + ${teacher2.teacherImg}"
-								onerror="this.onerror=null;this.src='teacherImg/default.jpg';"
-                                alt="">
-                                <!-- Blog Social -->
-                                <ul class="team-social">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-globe"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="team-caption">
-                                <h3><a href="instructor.html" th:text=${teacher2.name}>Janathon Smith</a></h3>
-                                <p>Faculty</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6" th:object="${teacher3}">
-                        <div class="single-team mb-30">
-                            <div class="team-img">
-                                <img th:src="'/teacherImg//' + ${teacher3.teacherImg}"
-								onerror="this.onerror=null;this.src='teacherImg/default.jpg';"
-                                alt="">
-                                <!-- Blog Social -->
-                                <ul class="team-social">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-globe"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="team-caption">
-                                <h3><a href="instructor.html" th:text="${teacher3.name}">Alexa MacCalum</a></h3>
-                                <p>Faculty</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6" th:object="${teacher4}">
-                        <div class="single-team mb-30">
-                            <div class="team-img">
-                                <img th:src="'/teacherImg//' + ${teacher4.teacherImg}"
-								onerror="this.onerror=null;this.src='teacherImg/default.jpg';"
-                                alt="">
-                                <!-- Blog Social -->
-                                <ul class="team-social">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-globe"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="team-caption">
-                                <h3><a href="instructor.html" th:text="${teacher4.name}">Alexa j Watson</a></h3>
-                                <p>Faculty</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                         <div class="team-img">
+            <img th:src="'/teacherImg//' + ${teacher2.teacherImg}" onerror="this.onerror=null;this.src='teacherImg/default.jpg';" alt="">
+            <ul class="team-social">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fas fa-globe"></i></a></li>
+            </ul>
+        </div>
+        <div class="team-caption">
+            <h3><a href="instructor.html" th:text="${teacher2.name}">Janathon Smith</a></h3>
+            <p>Faculty</p>
+        </div>
+    </div>
+</div>
+
+<!-- For teacher3 -->
+<div th:if="${teacher3 != null}" class="col-lg-3 col-md-6 col-sm-6" th:object="${teacher3}">
+    <div class="single-team mb-30">
+        <div class="team-img">
+            <img th:src="'/teacherImg//' + ${teacher3.teacherImg}" onerror="this.onerror=null;this.src='teacherImg/default.jpg';" alt="">
+            <ul class="team-social">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fas fa-globe"></i></a></li>
+            </ul>
+        </div>
+        <div class="team-caption">
+            <h3><a href="instructor.html" th:text="${teacher3.name}">Alexa MacCalum</a></h3>
+            <p>Faculty</p>
+        </div>
+    </div>
+</div>
+
+<!-- For teacher4 -->
+<div th:if="${teacher4 != null}" class="col-lg-3 col-md-6 col-sm-6" th:object="${teacher4}">
+    <div class="single-team mb-30">
+        <div class="team-img">
+            <img th:src="'/teacherImg//' + ${teacher4.teacherImg}" onerror="this.onerror=null;this.src='teacherImg/default.jpg';" alt="">
+            <ul class="team-social">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i the="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fas fa-globe"></i></a></li>
+            </ul>
+        </div>
+        <div class="team-caption">
+            <h3><a href="instructor.html" th:text="${teacher4.name}">Alexa J Watson</a></h3>
+            <p>Faculty</p>
+        </div>
+    </div>
+</div>
+
                 <!-- Section Button -->
                 <!-- <div class="row">
                     <div class="col-lg-12">
@@ -612,7 +607,7 @@
                         <div class="col-lg-12">
                             <div class="footer-copy-right text-center">
                                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This project is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">Group8</a>
+ 
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                             </div>
                         </div>

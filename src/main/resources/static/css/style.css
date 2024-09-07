@@ -1,9 +1,8 @@
 /*
     Table of Contents
 
-    Name                 : Efron
-    Author               : Quixkit
-    Author Portfolio     : https://themeforest.net/user/quixkit/portfolio
+    Name                 : Shreyas
+    Author               : Shreyas
     
 
 
@@ -35,7 +34,7 @@
         +theme
         +version-dark
 
-    5. Conponents
+    5. Components
         +app
         +charts
         +forms
@@ -19402,5 +19401,3 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
     background-color: transparent; }
     [data-theme-version="dark"] .footer .copyright p {
       color: #fff; }
-
-/*# sourceMappingURL=style.css.map */
